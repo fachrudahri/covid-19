@@ -1,0 +1,22 @@
+<%- include('../views/navbar.ejs') %>
+
+<div class="cont-data">
+    <div class="container">
+        <div class="row">
+        <% alldata.forEach((e) => { %>
+                <div class="col-md-6">
+                    <div class="card bag-data">
+                        <div class="card-body">
+                            <h2><%- e.attributes.Provinsi %></h2>
+                            <span>Positif: <%- e.attributes.Kasus_Posi %> || </span>
+                            <span>Sembuh: <%- e.attributes.Kasus_Semb %> || </span>
+                            <span>Meninggal: <%- e.attributes.Kasus_Meni %></span>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+<%- include('../views/footer.ejs')%>

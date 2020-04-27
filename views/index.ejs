@@ -1,0 +1,73 @@
+<%- include('../views/navbar.ejs') %>
+
+<div class=" body-two">
+    <div class="container">
+        <h1>
+            Coronavirus Indonesia & <span class="stabilo">Provinsi</span><br />Live Data<span>.</span>
+        </h1>
+        <div class="row row-distance">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card-data indonesia">
+                            <h2><span class="ungu">Indonesia</span> saat<br>ini</h2>
+                            <div class="content">
+                                <% indo.forEach(e => { %>
+                                        <p><%- e.positif %> Positif | 
+                                        <%- e.sembuh %> Sembuh | 
+                                        <%- e.meninggal %> Meninggal</p>
+                                <% }) %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-data positive">
+                            <h2><span class="gold">Positif</span> secara<br>global</h2>
+                            <div class="content">
+                                <p><%- positif%> Positif</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card-data health">
+                            <h2><span class="hijau">Sembuh</span> secara<br>global</h2>
+                            <div class="content">
+                                <p><%- sembuh%> Sembuh</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-data death">
+                            <h2><span class="merah">Meninggal</span> secara<br>global</h2>
+                            <div class="content">
+                                <p><%- meninggal%> Meninggal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-data">
+                    <h2><span class="alldata">Daftar seluruh Provinsi</span><br></h2>
+                    <div class="content">
+                        <% datas.forEach(e => { %>
+                            <% if(e.attributes.Provinsi === 'Sumatera Utara' ||e.attributes.Provinsi === 'DKI Jakarta' ||e.attributes.Provinsi === 'Jawa Barat') { %>
+                                <h5><%- e.attributes.Provinsi%></h5>
+                                <p><%- e.attributes.Kasus_Posi %> Positif | 
+                                <%- e.attributes.Kasus_Semb %> Sembuh | 
+                                <%- e.attributes.Kasus_Meni %> Meninggal</p>
+                                <hr>
+                            <% } %>
+                        <% }) %>
+                        <a href="/alldata">Selengkapnya...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../views/footer.ejs')%>
+
